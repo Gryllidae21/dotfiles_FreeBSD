@@ -1,0 +1,221 @@
+#####################################################
+# i3 config file by Sandi Files                     #
+#####################################################
+# font
+font pango:Envy Code R 13
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #654e40 #654e40 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+# Hiding borders adjacent to the screen edges
+hide_edge_borders smart
+
+# modkey
+set $Mod Mod4
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier $Mod
+
+# start a terminal
+bindsym $Mod+Return exec urxvtc
+
+# kill focused window
+bindsym $Mod+Shift+q kill
+
+# start rofi (a program launcher)
+bindsym $Mod+d exec rofi -show run -lines 3 -location 0 -width 35 -opacity "90"  -font "Envy Code R 18" -hide-scrollbar
+
+# The middle button over a titlebar kills the window
+# bindsym --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
+
+# The right button toggles floating
+#bindsym button3 floating toggle
+bindsym --whole-window $mod+Ctrl+button3 floating toggle
+
+# change focus
+bindsym $Mod+j focus left
+bindsym $Mod+k focus down
+bindsym $Mod+l focus up
+bindsym $Mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $Mod+Left focus left
+bindsym $Mod+Down focus down
+bindsym $Mod+Up focus up
+bindsym $Mod+Right focus right
+
+# move focused window
+bindsym $Mod+Shift+j move left
+bindsym $Mod+Shift+k move down
+bindsym $Mod+Shift+l move up
+bindsym $Mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $Mod+Shift+Left move left
+bindsym $Mod+Shift+Down move down
+bindsym $Mod+Shift+Up move up
+bindsym $Mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $Mod+h split h
+
+# split in vertical orientation
+bindsym $Mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $Mod+f fullscreen
+
+# popups during fullscreen mode
+popup_during_fullscreen smart
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $Mod+s layout stacking
+bindsym $Mod+w layout tabbed
+bindsym $Mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $Mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $Mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $Mod+a focus parent
+
+# focus the child container
+#bindsym $Mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $Mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $Mod+minus scratchpad show
+
+set $Workspace1  "1 : "
+set $Workspace2  "2 : "
+set $Workspace3  "3 : "
+set $Workspace4  "4 : "
+set $Workspace5  "5 : "
+set $Workspace6  "6 : "
+set $Workspace7  "7 : "
+set $Workspace8  "8 : "
+set $Workspace9  "9 : "
+set $Workspace10 "10 : "
+
+# move to next/previous workspace
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
+# switch to workspace
+bindsym $Mod+1 workspace $Workspace1
+bindsym $Mod+2 workspace $Workspace2
+bindsym $Mod+3 workspace $Workspace3
+bindsym $Mod+4 workspace $Workspace4
+bindsym $Mod+5 workspace $Workspace5
+bindsym $Mod+6 workspace $Workspace6
+bindsym $Mod+7 workspace $Workspace7
+bindsym $Mod+8 workspace $Workspace8
+bindsym $Mod+9 workspace $Workspace9
+bindsym $Mod+0 workspace $Workspace10
+
+# move focused container to workspace
+bindsym $Mod+Shift+1 move container to workspace $workspace1
+bindsym $Mod+Shift+2 move container to workspace $workspace2
+bindsym $Mod+Shift+3 move container to workspace $workspace3
+bindsym $Mod+Shift+4 move container to workspace $workspace4
+bindsym $Mod+Shift+5 move container to workspace $workspace5
+bindsym $Mod+Shift+6 move container to workspace $workspace6
+bindsym $Mod+Shift+7 move container to workspace $workspace7
+bindsym $Mod+Shift+8 move container to workspace $workspace8
+bindsym $Mod+Shift+9 move container to workspace $workspace9
+bindsym $Mod+Shift+0 move container to workspace $workspace10
+
+# Press $mod+o followed by either f, t, Esc or Return to launch firefox,
+# thunar or return to the default mode, respectively.
+set $quick_run Launch: [f]irefox [t]hunar [d]eluge
+bindsym $mod+o mode "$quick_run"
+
+mode "$quick_run" {
+    bindsym f exec firefox
+    bindsym t exec thunar
+    bindsym d exec deluge
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+# rules and assignments
+assign [class="Deluge"]  $Workspace6
+assign [class="Firefox"] $Workspace2
+assign [class="Thunar"]  $Workspace4
+
+for_window [class="Lxappearance"] floating enable
+for_window [class="^.*"] border pixel 1
+
+# volume control
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume  exec amixer -q sset Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q sset Master toggle
+
+# reload the configuration file
+bindsym $Mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $Mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $Mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j           resize shrink width 10 px or 10 ppt
+        bindsym k           resize grow height 10 px or 10 ppt
+        bindsym l           resize shrink height 10 px or 10 ppt
+        bindsym semicolon   resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $Mod+r mode "resize"
+
+# Toggle between dock mode and hide mode
+bindsym $mod+n bar mode toggle
+
+# Start i3bar to display a workspace bar (plus the system information)
+bar {
+        status_command i3status
+	font pango:Envy Code R 13
+	
+	colors {
+        background #151515
+        statusline #EDEDED
+        separator  #0D0D0C
+
+        focused_workspace  #CECECE #CECECE #0D0D0C
+        active_workspace   #CECECE #CECECE #0D0D0C
+        inactive_workspace #151515 #151515 #666666
+        urgent_workspace   #1E436B #1E436B #EDEDED
+        binding_mode       #1E436B #1E436B #EDEDED
+    }
+}

@@ -1,0 +1,76 @@
+!--------------------------------!
+! -- Xresources by Sandi Files --!
+!--------------------------------!
+
+! URxvt general settings
+URxvt.termName: 		    rxvt-256color
+URxvt.depth: 			    32
+URxvt.buffered:			    true
+URxvt.loginShell: 		    true
+URxvt.visualBell:		    false
+URxvt.urgentOnBell:		    true
+URxvt.cursorBlink:		    true
+URxvt.cursorUnderline: 		false 
+URxvt.saveLines: 		    65535
+!URxvt.reverseVideo:		True
+!URxvt.jumpScroll:		    True
+!URxvt.skipScroll:		    True
+
+! URxvt scrollbar settings
+URxvt.scrollBar: 		    false
+URxvt.scrollBar_right: 		false
+URxvt.scrollBar_floating: 	false
+URxvt.scrollstyle: 		    rxvt
+
+! URxvt font settings
+URxvt.font: 			    xft:Envy Code R:size=13
+URxvt.boldFont: 		    xft:Envy Code R:bold:size=13
+URxvt.italicFont:      		xft:Envy Code R:italic:size=13
+URxvt.boldItalicFont: 		xft:Envy Code R:bold:italic:size=13
+
+!Xft settings
+Xft.dpi:               		96
+Xft.antialias:         		true
+Xft.rgba:              		rgb
+Xft.autohint:   		    true
+Xft.hinting:           		true
+Xft.hintstyle: 			    hintslight
+Xft.lcdfilter: 			    lcddefault
+
+! URxvt color scheme
+!URxvt.cursorColor: 		#850A0C
+!URxvt.cursorColor2: 		#000000
+!URxvt.highlightColor:		#FFFFFF
+!URxvt.highlightTextColor:	#FFFFFF
+!URxvt.underlineColor: 		#999999
+!URxvt.scrollColor: 		#FFFFFF
+!URxvt.troughColor:		    #FFFFFF
+!URxvt.borderColor:		    #FFFFFF
+
+! Jellybeans Terminal Colours
+URxvt.background: #151515
+URxvt.foreground: #EDEDED
+! black
+URxvt.color0: #888888
+URxvt.color8: #525252
+! red
+URxvt.color1: #CF6A4C
+URxvt.color9: #FF9D80
+! green
+URxvt.color2: #99AD6A
+URxvt.color10: #C3E6AD
+! yellow
+URxvt.color3: #FAD07A
+URxvt.color11: #FFEFBF
+! blue
+URxvt.color4: #8197BF
+URxvt.color12: #ACCAFF
+! magenta
+URxvt.color5: #8787AF
+URxvt.color13: #C4C4FF
+! cyan
+URxvt.color6: #8FBFDC
+URxvt.color14: #80BFAF
+! white
+URxvt.color7: #888888
+URxvt.color15: #E8E8D3
