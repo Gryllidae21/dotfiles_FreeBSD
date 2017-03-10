@@ -100,16 +100,16 @@ bindsym $Mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $Mod+minus scratchpad show
 
-set $Workspace1  "1 : "
-set $Workspace2  "2 : "
-set $Workspace3  "3 : "
-set $Workspace4  "4 : "
-set $Workspace5  "5 : "
-set $Workspace6  "6 : "
-set $Workspace7  "7 : "
-set $Workspace8  "8 : "
-set $Workspace9  "9 : "
-set $Workspace10 "10 : "
+set $Workspace1  "1: Terminal "
+set $Workspace2  "2: FireFox "
+set $Workspace3  "3: Code "
+set $Workspace4  "4: Files "
+set $Workspace5  "5: Music "
+set $Workspace6  "6: Torrent "
+set $Workspace7  "7: Office "
+set $Workspace8  "8: Security "
+set $Workspace9  "9: Gaming "
+set $Workspace10 "10: Settings "
 
 # move to next/previous workspace
 bindsym $mod+Ctrl+Left workspace prev
